@@ -3,18 +3,33 @@ package pkg.exoad.distrib;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
+import java.util.HashMap;
 
 import static pkg.exoad.distrib.SharedConstants.*;
 public final class Exoad
 {
 	private Exoad() {}
 
+	private static final HashMap< String, RegisteredFolder > registry = new HashMap<>();
 	private static boolean isArmed = false;
 	private static RegisteredFolder idFolder;
 
 	public static boolean isArmed()
 	{
 		return isArmed;
+	}
+
+	public static void putRegistry(String e, RegisteredFolder er)
+	{
+		registry.put(
+				e,
+				er
+		);
+	}
+
+	public static RegisteredFolder getRegistry(String e)
+	{
+		return registry.get(e);
 	}
 
 	public static void arm()
