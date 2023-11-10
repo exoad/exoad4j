@@ -9,4 +9,11 @@ public final class FileSysService
 		File f = new File(name);
 		return f.exists() && (f.isDirectory() || f.isFile());
 	}
+
+	public static boolean validateFolderName(String name)
+	{
+		return name != null && !name.isEmpty() && !name.contains("/") && !name.contains("\\") && !name.contains(":")
+				&& !name.contains("*") && !name.contains("?") && !name.contains("\"") && !name.contains("<")
+				&& !name.contains(">") && !name.contains("|") && !name.contains(" ");
+	}
 }

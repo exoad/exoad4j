@@ -3,5 +3,6 @@ public final class PublicConstants
 {
 	private PublicConstants() {}
 
-	public static final boolean DEBUG = true;
+	public static boolean DEBUG = true;
+	public static String PATH_DELIMITER = System.getProperty("file.separator");
 }
