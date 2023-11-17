@@ -9,31 +9,31 @@ public final class RegisteredFolder
 
 	public RegisteredFolder(DistribFolder name)
 	{
-		this.folder = name;
+		this.folder=name;
 	}
 
 	public void createFolder(String path)
 	{
-		if (path.contains("..") || path.contains("..."))
+		if(path.contains("..")||path.contains("..."))
 		{
 			SharedConstants.LOG.log(
 					Level.ERROR,
-					"Path " + path + " contains invalid characters!"
+					"Path "+path+" contains invalid characters!"
 			);
 			return;
 		}
-		File f = new File(folder.getPath() + path);
-		if (!f.exists() || !f.isDirectory())
+		File f=new File(folder.getPath()+path);
+		if(!f.exists()||!f.isDirectory())
 		{
-			if (f.mkdir())
+			if(f.mkdir())
 				SharedConstants.LOG.log(
 						Level.INFO,
-						"Created folder " + f.getAbsolutePath()
+						"Created folder "+f.getAbsolutePath()
 				);
 			else
 				SharedConstants.LOG.log(
 						Level.ERROR,
-						"Could not create folder " + f.getAbsolutePath()
+						"Could not create folder "+f.getAbsolutePath()
 				);
 		}
 	}
@@ -43,7 +43,7 @@ public final class RegisteredFolder
 		return new File(folder.getPath());
 	}
 
-	public void writeToFile(String data, String file)
+	public void writeToFile(String data,String file)
 	{
 		writeToFile(
 				data.getBytes(),
@@ -51,10 +51,10 @@ public final class RegisteredFolder
 		);
 	}
 
-	public void writeToFile(byte[] data, String file)
+	public void writeToFile(byte[] data,String file)
 	{
-		File f = new File(folder.getPath() + file);
-		if (!f.exists() || !f.isFile())
+		File f=new File(folder.getPath()+file);
+		if(!f.exists()||!f.isFile())
 			createFile(file);
 		try
 		{
@@ -62,7 +62,7 @@ public final class RegisteredFolder
 					f.toPath(),
 					data
 			);
-		} catch (IOException e)
+		} catch(IOException e)
 		{
 			throw new RuntimeException(e);
 		}
@@ -70,25 +70,61 @@ public final class RegisteredFolder
 
 	public void createFile(String path)
 	{
-		File f = new File(folder.getPath() + path);
-		if (!f.exists() || !f.isFile())
+		File f=new File(folder.getPath()+path);
+		if(!f.exists()||!f.isFile())
 		{
 			try
 			{
-				if (f.createNewFile())
+				if(f.createNewFile())
 					SharedConstants.LOG.log(
 							Level.INFO,
-							"Created file " + f.getAbsolutePath()
+							"Created file "+f.getAbsolutePath()
 					);
 				else
 					SharedConstants.LOG.log(
 							Level.ERROR,
-							"Could not create file " + f.getAbsolutePath()
+							"Could not create file "+f.getAbsolutePath()
 					);
-			} catch (IOException e)
+			} catch(IOException e)
 			{
 				throw new RuntimeException(e);
 			}
+		}
+	}
+
+	public void removeFile(String path)
+	{
+		File f=new File(folder.getPath()+path);
+		if(f.exists()&&f.isFile())
+		{
+			if(f.delete())
+				SharedConstants.LOG.log(
+						Level.INFO,
+						"Deleted file "+f.getAbsolutePath()
+				);
+			else
+				SharedConstants.LOG.log(
+						Level.ERROR,
+						"Could not delete file "+f.getAbsolutePath()
+				);
+		}
+	}
+
+	public void removeFolder(String path)
+	{
+		File f=new File(folder.getPath()+path);
+		if(f.exists()&&f.isDirectory())
+		{
+			if(f.delete())
+				SharedConstants.LOG.log(
+						Level.INFO,
+						"Deleted folder "+f.getAbsolutePath()
+				);
+			else
+				SharedConstants.LOG.log(
+						Level.ERROR,
+						"Could not delete folder "+f.getAbsolutePath()
+				);
 		}
 	}
 }
