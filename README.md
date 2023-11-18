@@ -55,7 +55,7 @@ public class MyNewApplication
 				"MyNewApplication",
 				Exoad.registerProgram(new DistribFolder("astralascent"))
 		);
-    }
+        }
 }
 ```
 
