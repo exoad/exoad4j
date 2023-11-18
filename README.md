@@ -1,4 +1,5 @@
 # exoad4j
+[![Gradle build](https://github.com/exoad/exoad4j/actions/workflows/gradle.yml/badge.svg)](https://github.com/exoad/exoad4j/actions/workflows/gradle.yml)
 
 > exoad4j is a library for me to unify all the save locations for my projects
 
