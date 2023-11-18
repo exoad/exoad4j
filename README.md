@@ -6,12 +6,11 @@ Copyright (C) Jack Meng (exoad) 2023
 
 ## Motive
 
-**This project was mostly designed for my own projects.**
+**This project was primarily designed for managing multiple personal projects.**
 
-Creating desktop applications most likely requires some kind of data to be saved. However, it gets very messy when 
-you have multiple projects and you want to save data for each of them. This library is designed to solve this problem.
+Developing desktop applications often involves the need to save data. However, managing data becomes challenging when dealing with multiple projects, each requiring its own set of saved data. This library aims to address this issue.
 
-By creating a single folder and creating subfolders to represent other projects, this helps to simplify that process.
+The solution involves creating a centralized folder and establishing subfolders to represent individual projects. This approach streamlines the data-saving process for each project, reducing complexity.
 
 ## Usage
 
