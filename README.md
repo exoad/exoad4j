@@ -14,6 +14,8 @@ The solution involves creating a centralized folder and establishing subfolders 
 
 ## Usage
 
+**Check on GitHub Packages:** https://github.com/exoad/exoad4j/packages/
+
 ### Gradle
 
 ```groovy
