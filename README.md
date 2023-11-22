@@ -5,6 +5,9 @@
 
 Copyright (C) Jack Meng (exoad) 2023
 
+> [!CAUTION]
+> **I highly suggest you do not use this tool directly! Modify it in someway so you do not clash with my projects unless it is for a plugin!**
+
 ## Motive
 
 **This project was primarily designed for managing multiple personal projects.**
